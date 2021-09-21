@@ -31,11 +31,9 @@ app.get("/api/hello", function (req, res) {
 
 // endpoint for creating shorturl
 app.post("/api/shorturl", function (req, res) {
-  // { original_url : 'https://freeCodeCamp.org', short_url : 1}
   const original_url = req.body.url
   const short_url = Object.keys(urlLookup).length + 1
   urlLookup[short_url] = original_url
-  console.log(req.body)
   res.json({original_url, short_url});
 });
 
